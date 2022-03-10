@@ -1,0 +1,120 @@
+﻿@model IEnumerable<Fifa2023.Models.Jugador>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Jugadores</h1>
+<p>
+    <a asp-action="Crear">Crear un nuevo jugador</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Apellido)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Fecha_Nacimiento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pasaporte)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Direccion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Sexo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Equipo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Estado)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Apellido)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Fecha_Nacimiento)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Pasaporte)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Direccion)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Sexo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Equipo.Nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Estado.Nombre_estado)
+
+                </td>
+                <td>
+                    <a asp-action="Editar" asp-route-id="@item.Id">Editar</a> |
+                    <a asp-action="Eliminar" asp-route-id="@item.Id">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+@*@model Jugador
+
+    <form asp-action="Crear">
+        <div class="form-group">
+            <label>Equipo</label>
+            <input asp-for="Nombre" type="text" class="form-control" placeholder="Entre el nombre de equipo">
+        </div>
+        <div class="form-group">
+            <label>Pais</label>
+            <input asp-for="Apellido" type="text" class="form-control" placeholder="Entre el pais">
+        </div>
+        <div class="form-group">
+            <input asp-for="Pasaporte" type="date" class="form-check-input">
+        </div>
+        <div class="form-group">
+            <input asp-for="Direccion" type="date" class="form-check-input">
+        </div>
+        <div class="form-group">
+            <select asp-for="Sexo">
+                <option value="M">Hombre</option>
+                <option value="F">Mujer</option>
+            </select>
+            <input asp-for="Sexo" type=" class="form-check-input">
+        </div>
+        <div class="form-group">
+            <input asp-for="Fecha_Nacimiento" type="date" class="form-check-input">
+        </div>
+        <div class="form-group">
+            <select asp-for="EquipoId" asp-items="ViewBag.EquipoId"></select>
+        </div>
+        <div class="form-group">
+            <select asp-for="EstadoId" asp-items="ViewBag.EstadoID"></select>
+        </div>
+        <div class="form-group">
+            <label></label>
+            <button type="submit" class="form-control">Crear</button>
+        </div>
+    </form>*@
+
